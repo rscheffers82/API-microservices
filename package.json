@@ -1,0 +1,15 @@
+{
+  "name": "timestamp-microservice",
+  "version": "1.0.0",
+  "description": "Simple full-stack app that provides back a json object with the unix and human readable time",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:w": "nodemon"
+  },
+  "keywords": [
+    "timestamp"
+  ],
+  "author": "Roy Scheffers",
+  "license": "MIT"
+}
