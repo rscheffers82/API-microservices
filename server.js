@@ -31,20 +31,35 @@ serveTime = function(input, type, res) {
 //-----------------------
 //    Routes
 //-----------------------
+app.use( express.static('public') );
+
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 })
 app.get('/:timestamp', function(req, res){
-  const input = req.params.timestamp;
+  // Know issues: st, nd, th addition for days will render null for a human date
 
-  // determine if input is a unix timestamp
-  if ( !isNaN(input) ) serveTime(input, 'unix', res);
-  else if ( isValidHumanDate(input) ) serveTime(input, 'human', res);
-  else res.send(noDate);
+  const rawInput = req.params.timestamp;         // text or unix timestamp
+  const unixDate = Date.parse(rawInput);         // try to convert a human date to a unix timestamp
+  var output = {};
 
+  if ( !isNaN(unixDate) ) {
+    // rawInput contains a valid human date and was successfully converted to a unix timestamp
+    output.human = rawInput ;
+    output.unix = unixDate;
+  }
+  else if ( !isNaN(rawInput) ) {
+    // a valid unix timestamp was provided
+    output.unix = rawInput;
+    Number(rawInput) < 86400 ? output.human = 'January 1, 1970' : output.human = new Date( Number(rawInput) );
+  }
+  else {
+    output.unix = null;
+    output.human = null;
+  }
+  res.send(output);
+});
 
-
-})
 
 const PORT = process.env.PORT || 8080;
 
