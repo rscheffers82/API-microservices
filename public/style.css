@@ -14,3 +14,8 @@ blockquote {
   padding-left: 20px;
   margin-bottom: 40px;
 }
+
+li{
+  margin: 15px 5px;
+  padding-left: 10px;
+}

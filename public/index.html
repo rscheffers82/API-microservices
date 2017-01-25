@@ -25,15 +25,16 @@
       <div class="container">
           <blockquote>
               User stories:
-              <ul>1) I can pass a string as a parameter, and it will check to see whether that string
-              contains either a unix timestamp or a natural language date (example: December 6, 1982)</ul>
-              <ul>2) If it does, it returns both the Unix timestamp and the natural language form of that date.</ul>
-              <ul>3) If it does not contain a date or Unix timestamp, it returns null for those properties.</ul>
+              <ol>
+                <li>I can pass a string as a parameter, and it will check to see whether that string contains either a unix timestamp or a natural language date (example: December 6, 1982)</li>
+                <li>If it does, it returns both the Unix timestamp and the natural language form of that date.</li>
+                <li>If it does not contain a date or Unix timestamp, it returns null for those properties.</li>
+              </ol>
           </blockquote>
           <h3>Example usage:</h3>
 <pre>
-    <code>http://royscheffers.com/December 6, 1982</code>
-    <code>http://royscheffers.com/408005400</code>
+    <code>http://rs-timestamp-ms.herokuapp.com/December 6, 1982</code>
+    <code>http://rs-timestamp-ms.herokuapp.com/408005400</code>
 </pre>
           <h3>Example output:</h3>
           <code>
@@ -55,11 +56,6 @@
     </footer>
 
     <!-- Place scripts below the line -->
-    <script>
-      function baseURL() {
-        echo 'window.location.href';
-      }
 
-    </script>
   </body>
 </html>
