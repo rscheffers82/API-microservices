@@ -1,4 +1,5 @@
 var express = require('express');
+var moment = require('moment');
 
 var app = express();
 
@@ -18,14 +19,6 @@ const month = [
 //-----------------------
 //    Functions
 //-----------------------
-isValidHumanDate = function(input){
-// Valid: dd-mm-yyyy or Dec | December 1st, 2016
-
-}
-
-serveTime = function(input, type, res) {
-  res.send(input + 'hello');
-}
 
 
 //-----------------------
@@ -37,21 +30,28 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 })
 app.get('/:timestamp', function(req, res){
-  // Know issues: st, nd, th addition for days will render null for a human date
+//   Know issues:
+//     - st, nd, th addition for days will render null for a human date
+// http://momentjs.com/docs/#/parsing/string-format/
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse#Using_Date.parse()
 
   const rawInput = req.params.timestamp;         // text or unix timestamp
   const unixDate = Date.parse(rawInput);         // try to convert a human date to a unix timestamp
+  const format = 'MMM D YYYY';
   var output = {};
 
-  if ( !isNaN(unixDate) ) {
-    // rawInput contains a valid human date and was successfully converted to a unix timestamp
-    output.human = rawInput ;
-    output.unix = unixDate;
-  }
-  else if ( !isNaN(rawInput) ) {
+  if ( !isNaN(rawInput) ) {
     // a valid unix timestamp was provided
+    const humanDate = moment.unix(rawInput).format(format);
+
     output.unix = rawInput;
-    Number(rawInput) < 86400 ? output.human = 'January 1, 1970' : output.human = new Date( Number(rawInput) );
+    output.human = humanDate;
+  }
+  else if ( !isNaN(unixDate) ) {
+    // rawInput contains a valid human date and was successfully converted to a unix timestamp
+    output.unix = unixDate / 1000;              // /1000 to convert from ms to sec
+    output.human = rawInput;
   }
   else {
     output.unix = null;
