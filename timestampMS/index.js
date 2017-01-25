@@ -1,10 +1,10 @@
 var moment = require('moment');
 
-var checkForDate = function(rawInput) {
-  //   Know issues:
-  //     - st, nd, th addition for days will render null for a human date
+var checkForDate = function(rawInputOrigin) {
 
-  const unixDate = Date.parse(rawInput);         // try to convert a human date to a unix timestamp
+  rawInput = rawInputOrigin;
+  rawInput = rawInput.replace(/(st|nd|rd|th)/g,'');   // remove st, nd, rd, th from the day if provided
+  const unixDate = Date.parse(rawInput);              // try to convert a human date to a unix timestamp
   const humanDateFormat = 'MMM D YYYY';
   var output = {};
 
@@ -18,7 +18,7 @@ var checkForDate = function(rawInput) {
   else if ( !isNaN(unixDate) ) {
     // rawInput contains a valid human date and was successfully converted to a unix timestamp
     output.unix = unixDate / 1000;              // /1000 to convert from ms to sec
-    output.human = rawInput;
+    output.human = rawInputOrigin;              // return the original input provided
   }
   else {
     output.unix = null;
