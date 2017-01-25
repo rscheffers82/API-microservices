@@ -1,6 +1,16 @@
 body {
-  /*font-size: 5rem;*/
+  background-color: #eee;
+  font-size: 1.1rem;
+  font-family: 'Roboto', sans-serif;
+  padding: 10px 0 0 30px;
 }
 h3 {
-  color: #ff2222;
+  color: #dd1111;
+}
+
+blockquote {
+  border-left: 6px solid #ccc;
+  margin-left: 20px;
+  padding-left: 20px;
+  margin-bottom: 40px;
 }

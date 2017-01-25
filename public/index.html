@@ -7,10 +7,11 @@
   <head>
     <title>Welcome to Timestamp Microservice!</title>
     <meta name="description" content="A cool app made by Roy Scheffers">
-    <!-- <link id="favicon" rel="icon" href="" type="image/x-icon"> -->
+    <link id="favicon" rel="icon" href="base-jump.png" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -25,47 +26,40 @@
           <blockquote>
               User stories:
               <ul>1) I can pass a string as a parameter, and it will check to see whether that string
-              contains either a unix timestamp or a natural language date (example: January 1, 2016)</ul>
+              contains either a unix timestamp or a natural language date (example: December 6, 1982)</ul>
               <ul>2) If it does, it returns both the Unix timestamp and the natural language form of that date.</ul>
               <ul>3) If it does not contain a date or Unix timestamp, it returns null for those properties.</ul>
           </blockquote>
           <h3>Example usage:</h3>
-          <code>http://royscheffers.com/December%206,%201982</code><br>
-          <code>http://royscheffers.com/408005400</code>
+<pre>
+    <code>http://royscheffers.com/December 6, 1982</code>
+    <code>http://royscheffers.com/408005400</code>
+</pre>
           <h3>Example output:</h3>
           <code>
-              {
-                "unix": 408005400,
-                "natural": "December 6, 1982"
-              }
+                <pre>
+  {
+    "unix": 408005400,
+    "natural": "December 6, 1982"
+  }
+                </pre>
           </code>
       </div>
-
-
-
-      <!-- <p class="bold">Oh hi,</p>
-      <p>Tell me your hopes and dreams:</p>
-      <form>
-        <input type="text" maxlength="100" placeholder="Dreams!">
-        <button type="submit">Submit</button>
-      </form>
-      <section class="dreams">
-        <ul id="dreams">
-        </ul>
-      </section> -->
     </main>
+    <br />
 
     <footer>
-      <a href="http://royscheffers.com">
-        Made by Roy Scheffers
+      <a href="http://royscheffers.com" target="_blank">
+        An app by Roy Scheffers
       </a>
     </footer>
 
-    <!-- Your web-app is https, so your scripts need to be too -->
-    <script src="http://code.jquery.com/jquery-2.2.1.min.js"
-            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
-            crossorigin="anonymous"></script>
-    <!-- <script src="./client.js"></script> -->
+    <!-- Place scripts below the line -->
+    <script>
+      function baseURL() {
+        echo 'window.location.href';
+      }
 
+    </script>
   </body>
 </html>
