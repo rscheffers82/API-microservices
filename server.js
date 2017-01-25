@@ -1,25 +1,38 @@
-var express = require('express');
-var checkForDate = require('./timestampMS');
+const express = require('express');
+const path = require('path');
+
+const checkForDate = require('./timestamp-ms/API');
+
+//-----------------------
+//    Express settings
+//-----------------------
+const PORT = process.env.PORT || 8080;
 
 var app = express();
+app.listen(PORT);
+console.log('API projects app: Service listening on port ', PORT);
+
 
 //-----------------------
 //    Routes
 //-----------------------
-app.use( express.static('public') );
 
+// -- main -- \\
+app.use( express.static( path.join(__dirname + '/public') ) );
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile( path.join(__dirname + '/index.html') );
 })
-app.get('/:timestamp', function(req, res){
-  const rawInput = req.params.timestamp;         // catch the unput off of the url, either text or unix timestamp
+
+// -- timestamp API -- \\
+app.use( '/timestamp', express.static( path.join(__dirname + '/timestamp-ms/public') ) );   // automatically serve static files in the timestamp public file, in this case index.html
+app.get('/timestamp/:timestamp', function(req, res){
+  const rawInput = req.params.timestamp;         // catch the input off of the url, either text or unix timestamp
   res.send( checkForDate(rawInput) );
 });
 
-const PORT = process.env.PORT || 8080;
+// -- Request Header Parser -- \\
 
-app.listen(PORT);
-console.log('Timestamp Microservice listening on port ', PORT);
+
 
 
 //-----------------------

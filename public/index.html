@@ -5,49 +5,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome to Timestamp Microservice!</title>
-    <meta name="description" content="A cool app made by Roy Scheffers">
+    <title>API project collection</title>
+    <meta name="description" content="A collection of cool API apps made by Roy Scheffers">
     <link id="favicon" rel="icon" href="base-jump.png" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="./style.css">
   </head>
   <body>
     <header>
       <h1 class="header">
-          API Basejump: Timestamp microservice
+          API project collection
       </h1>
     </header>
 
     <main>
-      <div class="container">
-          <blockquote>
-              User stories:
-              <ol>
-                <li>I can pass a string as a parameter, and it will check to see whether that string contains either a unix timestamp or a natural language date (example: December 6, 1982)</li>
-                <li>If it does, it returns both the Unix timestamp and the natural language form of that date.</li>
-                <li>If it does not contain a date or Unix timestamp, it returns null for those properties.</li>
-              </ol>
-          </blockquote>
-          <h3>Example usage:</h3>
-<pre>
-    <code>http://rs-timestamp-ms.herokuapp.com/December 6, 1982</code>
-    <code>http://rs-timestamp-ms.herokuapp.com/408005400</code>
-</pre>
-          <h3>Example output:</h3>
-          <code>
-                <pre>
-  {
-    "unix": 408005400,
-    "natural": "December 6, 1982"
-  }
-                </pre>
-          </code>
-      </div>
+      <a href="timestamp">API Basejump: Timestamp microservice</a>
     </main>
-    <br />
 
     <footer>
       <a href="http://royscheffers.com" target="_blank">
