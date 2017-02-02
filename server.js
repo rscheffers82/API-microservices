@@ -34,6 +34,10 @@ app.get('/timestamp/:timestamp', function(req, res){
 
 app.get('/whoami', function(req, res){
   const ip = req.connection.remoteAddress;
+  // const ip = req.headers['x-forwarded-for'] ||
+  //    req.connection.remoteAddress ||
+  //    req.socket.remoteAddress ||
+  //    req.connection.socket.remoteAddress;
   res.send({ ip });
 
 
@@ -42,7 +46,7 @@ app.get('/whoami', function(req, res){
   //   "language": "en-US",
   //   "software": "Windows NT 10.0; WOW64; rv:53.0"
   // }
-}
+});
 
 
 
