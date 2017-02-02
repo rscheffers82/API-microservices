@@ -1,6 +1,9 @@
 const express = require('express');
 const path = require('path');
 
+const accepts = require('accepts');
+const os = require('os');
+
 const checkForDate = require('./timestamp-ms/API');
 
 //-----------------------
@@ -34,12 +37,18 @@ app.get('/timestamp/:timestamp', function(req, res){
 
 app.get('/whoami', function(req, res){
   // const ip = req.connection.remoteAddress;
-  const ip = req.headers['x-forwarded-for'].split(',').pop() ||
-             req.connection.remoteAddress ||
-             req.socket.remoteAddress ||
-             req.connection.socket.remoteAddress;
-  res.send({ ip });
+  // const ip = req.headers['x-forwarded-for'].split(',').pop() ||
+  //            req.connection.remoteAddress ||
+  //            req.socket.remoteAddress ||
+  //            req.connection.socket.remoteAddress;
+  var header = {};
+  header.ipaddress = req.ip;
+  header.language = accepts(req).languages()[0];
+  header.software = os.type() + ' ' +
+                    os.release() + ' ' +
+                    os.arch() + ' ' +
 
+  res.send( header );
 
   // {      -- expected output
   //   "ipaddress": "73.110.16.140",
@@ -58,3 +67,7 @@ app.get('/whoami', function(req, res){
 // http://momentjs.com/docs/#/parsing/string-format/
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse#Using_Date.parse()
+
+// *** Header request API
+// http://expressjs.com/en/4x/api.html
+// Using accepts - stackoverflow.com/questions/11845471/how-can-i-get-browser-the-language-in-node-js-express-js#11845585
