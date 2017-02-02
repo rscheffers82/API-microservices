@@ -1,11 +1,8 @@
 const express = require('express');
 const path = require('path');
 
-const accepts = require('accepts');
-const os = require('os');
-
 const checkForDate = require('./timestamp-ms/API');
-
+const headerAPI = require('./request-header');
 //-----------------------
 //    Express settings
 //-----------------------
@@ -36,25 +33,7 @@ app.get('/timestamp/:timestamp', function(req, res){
 // -- Request Header Parser API -- \\
 
 app.get('/whoami', function(req, res){
-  // const ip = req.connection.remoteAddress;
-  // const ip = req.headers['x-forwarded-for'].split(',').pop() ||
-  //            req.connection.remoteAddress ||
-  //            req.socket.remoteAddress ||
-  //            req.connection.socket.remoteAddress;
-  var header = {};
-  header.ipaddress = req.ip;
-  header.language = accepts(req).languages()[0];
-  header.software = os.type() + ' ' +
-                    os.release() + ' ' +
-                    os.arch() + ' ' +
-
-  res.send( header );
-
-  // {      -- expected output
-  //   "ipaddress": "73.110.16.140",
-  //   "language": "en-US",
-  //   "software": "Windows NT 10.0; WOW64; rv:53.0"
-  // }
+  res.send( headerAPI(req) );
 });
 
 
