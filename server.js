@@ -34,10 +34,10 @@ app.get('/timestamp/:timestamp', function(req, res){
 
 app.get('/whoami', function(req, res){
   // const ip = req.connection.remoteAddress;
-  const ip = var ip = req.headers['x-forwarded-for'].split(',').pop() ||
-                      req.connection.remoteAddress ||
-                      req.socket.remoteAddress ||
-                      req.connection.socket.remoteAddress;
+  const ip = req.headers['x-forwarded-for'].split(',').pop() ||
+             req.connection.remoteAddress ||
+             req.socket.remoteAddress ||
+             req.connection.socket.remoteAddress;
   res.send({ ip });
 
 
