@@ -6,11 +6,7 @@ var headerAPI = function(req) {
 
   // header.ipaddress = req.ip;
   // this will be more accurate and less poluted than the above which outputs on heroku "::ffff:10.61.238.152",
-  header.ipAddress = req.headers['x-forwarded-for'] ||
-     req.connection.remoteAddress ||
-     req.socket.remoteAddress ||
-     req.connection.socket.remoteAddress;
-
+  header.ipAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   header.language = accepts(req).languages()[0];
   header.software = os.type() + ' ' +
                     os.release().slice(0,4) + ' ' +
