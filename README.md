@@ -8,17 +8,19 @@ This repo is a collection of several API challenges from Free Code Camp. They ar
 ##### Timestamp API<br />
 Build an app that takes a unix or human readable time in the URL and outputs the result in JSON with properties unix and human with the proper data. If invalid input is provided, JSON data will be returned with both properties valued null.
 
-[Timestramp live demo](https://rs82.herokuapp.com/timestamp)<br />
+[Timestamp live demo](https://rs82.herokuapp.com/timestamp)<br />
 [Free Code Camp Challenge](https://www.freecodecamp.com/challenges/timestamp-microservice)
 
 
 ##### Header Parser API<br />
-<i>coming soon...
+This API service will obtain the IP address, language and operating system from the visitor / client and provides JSON data object back.
 
+[Header Parser Demo](https://rs82.herokuapp.com/whoami)<br />
+[Free Code Camp Challenge](https://www.freecodecamp.com/challenges/request-header-parser-microservice)
 
 ##### URL Shortener API<br />
-<i>coming soon...
+<i>coming soon...</i>
 
 
 ##### File Metadata API<br />
-<i>coming soon...
+<i>coming soon...</i>
