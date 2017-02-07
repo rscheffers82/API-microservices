@@ -1,5 +1,5 @@
 const accepts = require('accepts');
-const os = require('os');
+// const os = require('os');
 
 var headerAPI = function(req) {
   var header = {};
@@ -15,9 +15,6 @@ var headerAPI = function(req) {
   //                   os.arch();
   header.software = ua.match( /\((.*?)\)/ )[1];
   return header;
-
-
-  // const os = res.locals.ua.match( /\((.*?)\)/ );
 }
 
 module.exports = headerAPI;
