@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome to URL Shortener API!!!</title>
+    <title>Welcome to Timestamp Microservice!</title>
     <meta name="description" content="A cool app made by Roy Scheffers">
     <link id="favicon" rel="icon" href="base-jump.png" type="image/x-icon">
     <meta charset="utf-8">
@@ -17,7 +17,7 @@
   <body>
     <header>
       <h1 class="header">
-          Welcome to URL Shortener API!!!
+          API Basejump: Timestamp microservice
       </h1>
     </header>
 
@@ -26,9 +26,9 @@
           <blockquote>
               User stories:
               <ol>
-                <li>I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</li>
-                <li>If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.</li>
-                <li>When I visit that shortened URL, it will redirect me to my original link.</li>
+                <li>I can pass a string as a parameter, and it will check to see whether that string contains either a unix timestamp or a natural language date (example: December 6, 1982)</li>
+                <li>If it does, it returns both the Unix timestamp and the natural language form of that date.</li>
+                <li>If it does not contain a date or Unix timestamp, it returns null for those properties.</li>
               </ol>
           </blockquote>
           <h3>Example usage:</h3>

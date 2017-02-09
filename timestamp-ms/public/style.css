@@ -15,15 +15,7 @@ blockquote {
   margin-bottom: 40px;
 }
 
-li {
+li{
   margin: 15px 5px;
   padding-left: 10px;
-}
-
-.url {
-  padding: 2px 4px;
-  font-size: 90%;
-  color: #c7254e;
-  background-color: #f9f2f4;
-  border-radius: 4px;
 }
