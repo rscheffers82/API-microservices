@@ -3,6 +3,8 @@ const path = require('path');
 
 const checkForDate = require('./timestamp-ms/API');
 const headerAPI = require('./request-header');
+
+const config = require ('./config');
 //-----------------------
 //    Express settings
 //-----------------------
@@ -39,7 +41,10 @@ app.get('/whoami', function(req, res){
 app.use( '/shorten', express.static( path.join(__dirname + '/url-shortener/public') ) );   // automatically serve static files in the timestamp public folder, in this case index.html
 app.get('/short', function(req, res){
   // res.json( headerAPI(req) );
-  res.send('shorten me...');
+
+  // var url = process.env.MONGOLAB_URI;
+  var url = config.MONGOLAB_URI;
+  res.send('shorten me...' + url);
 });
 
 
