@@ -3,7 +3,7 @@ const path = require('path');
 
 const checkForDate = require('./timestamp-ms/API');
 const headerAPI = require('./request-header');
-const shorten = require('./url-shortener')
+const shorten = require('./url-shortener/API')
 
 //-----------------------
 //    Express settings

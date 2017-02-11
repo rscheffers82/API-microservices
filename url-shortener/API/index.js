@@ -1,4 +1,4 @@
-const config = require ('../config');
+const config = require ('../../config');
 
 var shorten = function(longUrl) {
   // var mongoUrl = process.env.MONGOLAB_URI;
