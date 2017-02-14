@@ -1,9 +1,24 @@
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose');
+const config = require ('./config');
+
 
 const checkForDate = require('./timestamp-ms/API');
 const headerAPI = require('./request-header');
 const shorten = require('./url-shortener/API')
+
+//-----------------------
+//    MongoDB connection
+//-----------------------
+// mongoose.connect('mongodb://localhost:auth/auth');
+mongoose.connect(config.MONGOLAB_URI);
+mongoose.connection
+  .once('open', () => console.log('MongoDB: We are connected') )
+  .on('error', (error) => {
+    console.warn('Warning: ', error);
+  });
+
 
 //-----------------------
 //    Express settings
@@ -12,7 +27,7 @@ const PORT = process.env.PORT || 8080;
 
 var app = express();
 app.listen(PORT);
-console.log('API projects app: Service listening on port ', PORT);
+console.log('API projects app: Service listening on port:', PORT);
 
 
 //-----------------------

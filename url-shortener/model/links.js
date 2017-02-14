@@ -1,19 +1,23 @@
+const ShortId = require('mongoose-shortid-nodeps');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// the model we'll work with
+// the model to work with
 const linkSchema = new Schema({
   shortcode: {
-    type: String,
+    type: ShortId,
     unique: true,
-    lowercase: true
+    len: 4,
+    base: 36,
+    alphabet: undefined,
+    retries: 4
   },
   url: String,
-  visits: Number
+  // visits: Number           // maybe implement as an extra feature of how often the link was visited
 });
 
 // Create the model class
-const ModelClass = mongoose.model('links', linkSchema);
+const Links = mongoose.model('links', linkSchema);
 
 // Export the model
-module.exports = ModelClass;
+module.exports = Links;

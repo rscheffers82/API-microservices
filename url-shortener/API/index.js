@@ -1,4 +1,5 @@
 const config = require ('../../config');
+const Links = require ('../model/links');
 
 var shorten = function(longUrl) {
   // var mongoUrl = process.env.MONGOLAB_URI;
