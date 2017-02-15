@@ -1,7 +1,8 @@
 const Links = require ('../model/links');
 
 function validURL(url) {
-  return true;
+  urlRegex = /^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,7})([\/\w \.-]*)*\/?$/
+  return url.match( urlRegex ) !== null;
 }
 
 exports.shortenURL = function(req, res) {
