@@ -1,7 +1,7 @@
 const Links = require ('../model/links');
 
-function invalidURL(url) {
-  return false;
+function validURL(url) {
+  return true;
 }
 
 exports.shortenURL = function(req, res) {
@@ -9,7 +9,7 @@ exports.shortenURL = function(req, res) {
   const longURL = req.params.url;
 
   // check for a valid url
-  if ( invalidURL(longURL) ) {
+  if ( !validURL(longURL) ) {
     res.json({ error: 'please provide a valid url' });
     return;
   }
@@ -28,10 +28,24 @@ exports.shortenURL = function(req, res) {
       });
     })
     .catch( (error) => {
-      res.json({ message, error });
+      res.json({ error: error });
     })
 }
 
-exports.retrieveURL = function(shortURL) {
-  return 'retrieve...';
+exports.retrieveURL = function(req, res) {
+  const url = /* req.protocol + '://' + */ req.hostname + req.url;
+  const shortcode = req.params.shortcode;
+
+  Links.findOne({ shortcode: shortcode })
+    .then( (link) => {
+      if (link) {
+        res.json({ url: link.url });
+      } else {
+      res.json({ error: `No URL found for: ${url}` })
+      }
+    })
+    .catch( (error) => {
+      res.json({ error: error });
+    });
+  // res.json({ shortcode: shortcode });
 };

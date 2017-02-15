@@ -59,7 +59,10 @@ app.use( '/shorten', express.static( path.join(__dirname + '/url-shortener/publi
 app.get('/shorten/:url', (req, res) => shortenURL(req, res) );
 
 // Redirect entry point
-app.get('/short/:url', (req, res) => retrieveURL(req, res) );
+app.get('/short/:shortcode', (req, res) => retrieveURL(req, res) );
+
+
+
 //-----------------------
 //    Resources
 //-----------------------
