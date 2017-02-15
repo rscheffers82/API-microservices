@@ -23,7 +23,6 @@ exports.shortenURL = function(req, res) {
   link.save()
     .then( () => {
       res.json({
-        status: 'saved',
         url: longURL,
         shorturl: `${appURL}/short/${link.shortcode}`
       });
