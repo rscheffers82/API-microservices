@@ -6,7 +6,7 @@ function validURL(url) {
 }
 
 exports.shortenURL = function(req, res) {
-  const appURL = 'http://localhost:8080'
+  const appURL = req.protocol + '://' + req.get('host');
   const longURL = req.params.url;
 
   // check for a valid url
@@ -41,6 +41,8 @@ exports.retrieveURL = function(req, res) {
     .then( (link) => {
       if (link) {
         // http://localhost:8080/short/e0Mi
+        link.visits++;
+        link.save();
         res.redirect(link.url);
         // res.json({ url: link.url });
       } else {
