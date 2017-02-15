@@ -54,12 +54,8 @@ app.get('/whoami', function(req, res){
 
 // -- URL Shortener API -- \\
 app.use( '/shorten', express.static( path.join(__dirname + '/url-shortener/public') ) );   // automatically serve static files in the timestamp public folder, in this case index.html
-
-// Shortener entry point
-app.get('/shorten/:url', (req, res) => shortenURL(req, res) );
-
-// Redirect entry point
-app.get('/short/:shortcode', (req, res) => retrieveURL(req, res) );
+app.get('/shorten/:url(*)', (req, res) => shortenURL(req, res) );            // Shortener entry point
+app.get('/short/:shortcode', (req, res) => retrieveURL(req, res) );       // Redirect entry point
 
 
 

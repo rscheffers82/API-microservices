@@ -10,7 +10,7 @@ exports.shortenURL = function(req, res) {
 
   // check for a valid url
   if ( !validURL(longURL) ) {
-    res.json({ error: 'please provide a valid url' });
+    res.status(422).json({ error: 'please provide a valid url' });
     return;
   }
 
@@ -28,7 +28,7 @@ exports.shortenURL = function(req, res) {
       });
     })
     .catch( (error) => {
-      res.json({ error: error });
+      res.status(422).json({ error: error });
     })
 }
 
@@ -39,13 +39,14 @@ exports.retrieveURL = function(req, res) {
   Links.findOne({ shortcode: shortcode })
     .then( (link) => {
       if (link) {
-        res.json({ url: link.url });
+        // http://localhost:8080/short/e0Mi
+        res.redirect(link.url);
+        // res.json({ url: link.url });
       } else {
-      res.json({ error: `No URL found for: ${url}` })
+      res.status(422).json({ error: `No URL found for: ${url}` })
       }
     })
     .catch( (error) => {
-      res.json({ error: error });
+      res.status(422).json({ error: error });
     });
-  // res.json({ shortcode: shortcode });
 };
