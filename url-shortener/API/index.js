@@ -1,24 +1,36 @@
 const config = require ('../../config');
 const Links = require ('../model/links');
 
-var shorten = function(longUrl) {
-  // var mongoUrl = process.env.MONGOLAB_URI;
-  var mongoUrl = config.MONGOLAB_URI;
-
-  // Shorten URL
-
-  // DB structure: Primary key | shortcode | longURL
-  // shortcode: 0 to 9 and a to z
-
-  // Store in the DB
-  // Use the below for a unique identifier
-  // https://www.npmjs.com/package/mongoose-shortid
-
-  // return json
-
-
-
-  return mongoUrl;
+function invalidURL(url) {
+  return false;
 }
 
-module.exports = shorten;
+exports.shortenURL = function(req, res) {
+  // const mongoUrl = process.env.MONGOLAB_URI;
+  const mongoUrl = config.MONGOLAB_URI;
+
+  const longURL = req.params.url;
+
+  // check for a valid url
+  if ( invalidURL(longURL) ) {
+    res.json({ error: 'please provide a valid url' });
+    return;
+  }
+
+  const link = new Links({
+    url: 'longURL',
+    visits: 0
+  });
+
+  link.save()
+    .then( () => {
+      res.send('saved');
+    })
+    .catch( (error) => {
+      res.send(`Oeps something went wrong... ${error}`);
+    })
+}
+
+exports.retrieveURL = function(shortURL) {
+  return 'retrieve...';
+};
