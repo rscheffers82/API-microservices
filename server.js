@@ -1,18 +1,17 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-const config = require ('./config');
-
 
 const checkForDate = require('./timestamp-ms/API');
 const headerAPI = require('./request-header');
 const { shortenURL, retrieveURL } = require('./url-shortener/API')
 
+const MONGOLAB_URI = process.env.MONGOLAB_URI;
+
 //-----------------------
 //    MongoDB connection
 //-----------------------
-// mongoose.connect('mongodb://localhost:auth/auth');
-mongoose.connect(config.MONGOLAB_URI);
+mongoose.connect(MONGOLAB_URI);
 mongoose.connection
   .once('open', () => console.log('MongoDB: We are connected') )
   .on('error', (error) => {
