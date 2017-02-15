@@ -74,3 +74,7 @@ app.get('/short/:url', (req, res) => retrieveURL(req, res) );
 // Accessing the User-Agent info
 // http://stackoverflow.com/questions/22285921/how-to-handle-user-agent-in-nodejs-environment
 // https://www.npmjs.com/package/useragent
+
+// -- URL Shortener API -- \\
+// Known bugs
+// - MongoDB connection timeout

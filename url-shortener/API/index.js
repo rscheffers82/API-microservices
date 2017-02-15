@@ -1,4 +1,3 @@
-const config = require ('../../config');
 const Links = require ('../model/links');
 
 function invalidURL(url) {
@@ -6,9 +5,7 @@ function invalidURL(url) {
 }
 
 exports.shortenURL = function(req, res) {
-  // const mongoUrl = process.env.MONGOLAB_URI;
-  const mongoUrl = config.MONGOLAB_URI;
-
+  const appURL = 'http://localhost:8080'
   const longURL = req.params.url;
 
   // check for a valid url
@@ -18,16 +15,20 @@ exports.shortenURL = function(req, res) {
   }
 
   const link = new Links({
-    url: 'longURL',
+    url: longURL,
     visits: 0
   });
 
   link.save()
     .then( () => {
-      res.send('saved');
+      res.json({
+        status: 'saved',
+        url: longURL,
+        shorturl: `${appURL}/short/${link.shortcode}`
+      });
     })
     .catch( (error) => {
-      res.send(`Oeps something went wrong... ${error}`);
+      res.json({ message, error });
     })
 }
 
