@@ -6,7 +6,7 @@ const config = require ('./config');
 
 const checkForDate = require('./timestamp-ms/API');
 const headerAPI = require('./request-header');
-const shorten = require('./url-shortener/API')
+const { shortenURL, retrieveURL } = require('./url-shortener/API')
 
 //-----------------------
 //    MongoDB connection
@@ -54,12 +54,12 @@ app.get('/whoami', function(req, res){
 
 // -- URL Shortener API -- \\
 app.use( '/shorten', express.static( path.join(__dirname + '/url-shortener/public') ) );   // automatically serve static files in the timestamp public folder, in this case index.html
-app.get('/short/:url', function(req, res){
-  var longUrl = req.params.url;
-  res.json( shorten(longUrl) );
-});
 
+// Shortener entry point
+app.get('/shorten/:url', (req, res) => shortenURL(req, res) );
 
+// Redirect entry point
+app.get('/short/:url', (req, res) => retrieveURL(req, res) );
 //-----------------------
 //    Resources
 //-----------------------
