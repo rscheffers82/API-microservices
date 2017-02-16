@@ -3,7 +3,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 
 var multer  = require('multer');
-var upload = multer({ dest: 'file-metadata/uploads/' });
+var upload = multer({ dest: './uploads/' });
 
 const checkForDate = require('./timestamp-ms/API');
 const headerAPI = require('./request-header');
@@ -66,7 +66,12 @@ app.get('/short/:shortcode', (req, res) => retrieveURL(req, res) );           //
 
 // -- File Metadata Microservice -- \\
 app.use( '/filedata', express.static( path.join(__dirname + '/file-metadata/public') ) );   // automatically serve static files in the timestamp public folder, in this case index.html
-app.post( '/analyse-file', upload.single('filename'), (req, res, next) => filedata(req, res, next) );
+app.post( '/analyse-file', upload.single('selectedfile'), function(req, res) {
+  console.log(req.body);
+  console.log(req.file);
+  res.send('got it');
+// => filedata(req, res)
+});
 
 
 
