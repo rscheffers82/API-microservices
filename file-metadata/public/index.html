@@ -42,8 +42,10 @@
           </code>
       </div>
 
-      <form action="/analyse-file" method="post">
-        <input type="file" name="selectedfile"><button type="submit">Submit</button>
+      <form action="/analyse-file" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file1" />
+        <input type="text" value="hello" />
+        <input type="submit" />
       </form>
 
     </main>
