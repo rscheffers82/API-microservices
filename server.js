@@ -15,12 +15,12 @@ const MONGOLAB_URI = process.env.MONGOLAB_URI;
 //-----------------------
 //    MongoDB connection
 //-----------------------
-// mongoose.connect(MONGOLAB_URI);
-// mongoose.connection
-//   .once('open', () => console.log('MongoDB: We are connected') )
-//   .on('error', (error) => {
-//     console.warn('Warning: ', error);
-//   });
+mongoose.connect(MONGOLAB_URI);
+mongoose.connection
+  .once('open', () => console.log('MongoDB: We are connected') )
+  .on('error', (error) => {
+    console.warn('Warning: ', error);
+  });
 
 
 //-----------------------
