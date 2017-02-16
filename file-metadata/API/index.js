@@ -1,6 +1,8 @@
 var multer  = require('multer');
 var upload = multer({ dest: 'uploads/' });
 
-exports.filesize = function(req, res) {
-
+function filedata(req, res) {
+  res.send('got it');
 };
+
+module.exports = filedata;

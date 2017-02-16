@@ -2,21 +2,25 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 
+var multer  = require('multer');
+var upload = multer({ dest: 'file-metadata/uploads/' });
+
 const checkForDate = require('./timestamp-ms/API');
 const headerAPI = require('./request-header');
 const { shortenURL, retrieveURL } = require('./url-shortener/API')
+const filedata = require('./file-metadata/API');
 
 const MONGOLAB_URI = process.env.MONGOLAB_URI;
 
 //-----------------------
 //    MongoDB connection
 //-----------------------
-mongoose.connect(MONGOLAB_URI);
-mongoose.connection
-  .once('open', () => console.log('MongoDB: We are connected') )
-  .on('error', (error) => {
-    console.warn('Warning: ', error);
-  });
+// mongoose.connect(MONGOLAB_URI);
+// mongoose.connection
+//   .once('open', () => console.log('MongoDB: We are connected') )
+//   .on('error', (error) => {
+//     console.warn('Warning: ', error);
+//   });
 
 
 //-----------------------
@@ -56,9 +60,17 @@ app.use( '/shorten', express.static( path.join(__dirname + '/url-shortener/publi
 app.get('/shorten/:url(*)', (req, res) => shortenURL(req, res) );             // Shortener entry point
 app.get('/short/:shortcode', (req, res) => retrieveURL(req, res) );           // Redirect entry point
 
+
+
+
+
 // -- File Metadata Microservice -- \\
 app.use( '/filedata', express.static( path.join(__dirname + '/file-metadata/public') ) );   // automatically serve static files in the timestamp public folder, in this case index.html
-// app.post();
+app.post( '/analyse-file', upload.single('filename'), (req, res, next) => filedata(req, res, next) );
+
+
+
+
 
 //-----------------------
 //    Resources
