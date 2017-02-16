@@ -27,7 +27,7 @@
               User stories:
               <ol>
                 <li>I can submit a FormData object that includes a file upload.</li>
-                <li>When I submit something, I will receive the file size in bytes within the JSON response.</li>
+                <li>When I submit something, I will receive the file name and file size in bytes within the JSON response.</li>
               </ol>
           </blockquote>
           <h3>Example usage:</h3>
@@ -36,7 +36,8 @@
           <code>
                 <pre>
   {
-    "size": 5120,
+    filename: "upload-test-file.txt"
+    size: 5120,
   }
                 </pre>
           </code>
@@ -44,7 +45,6 @@
 
       <form action="/analyse-file" method="POST" enctype="multipart/form-data">
         <input type="file" name="file1" />
-        <input type="text" value="hello" />
         <input type="submit" />
       </form>
 

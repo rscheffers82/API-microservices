@@ -66,14 +66,7 @@ app.get('/short/:shortcode', (req, res) => retrieveURL(req, res) );           //
 
 // -- File Metadata Microservice -- \\
 app.use( '/filedata', express.static( path.join(__dirname + '/file-metadata/public') ) );   // automatically serve static files in the timestamp public folder, in this case index.html
-app.post( '/analyse-file', upload.single('file1'), function(req, res) {
-  console.log(req.body);
-  console.log(req.file);
-  res.send(req.body);
-// => filedata(req, res)
-});
-
-
+app.post( '/analyse-file', upload.single('file1'), (req, res) => filedata(req, res) );
 
 
 
