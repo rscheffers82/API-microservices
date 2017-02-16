@@ -1,0 +1,59 @@
+
+<!-- This is a static file -->
+<!-- served from the routes in server.js -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to File Metadata API!!!</title>
+    <meta name="description" content="A cool app made by Roy Scheffers">
+    <link id="favicon" rel="icon" href="base-jump.png" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1 class="header">
+          Welcome to File Metadata API!!!
+      </h1>
+    </header>
+
+    <main>
+      <div class="container">
+          <blockquote>
+              User stories:
+              <ol>
+                <li>I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</li>
+                <li>If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.</li>
+                <li>When I visit that shortened URL, it will redirect me to my original link.</li>
+              </ol>
+          </blockquote>
+          <h3>Example usage:</h3>
+<pre>
+    <code class="">http://rs82.herokuapp.com/shorten/http://www.google.com</code>
+    <code class="">http://rs82.herokuapp.com/shorten/http://www.asubdoamin.atsomereallylongurl.com/evenlonger</code>
+</pre>
+          <h3>Example output:</h3>
+          <code>
+                <pre>
+  {
+    "url": "http://www.google.com",
+    "shorturl": "http://rs82.herokuapp.com/short/a11c"
+  }
+                </pre>
+          </code>
+      </div>
+    </main>
+    <br />
+
+    <footer>
+      <a href="http://royscheffers.com" target="_blank">
+        An app by Roy Scheffers
+      </a>
+    </footer>
+
+  </body>
+</html>

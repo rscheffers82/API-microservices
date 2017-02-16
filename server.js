@@ -53,10 +53,12 @@ app.get('/whoami', function(req, res){
 
 // -- URL Shortener API -- \\
 app.use( '/shorten', express.static( path.join(__dirname + '/url-shortener/public') ) );   // automatically serve static files in the timestamp public folder, in this case index.html
-app.get('/shorten/:url(*)', (req, res) => shortenURL(req, res) );            // Shortener entry point
-app.get('/short/:shortcode', (req, res) => retrieveURL(req, res) );       // Redirect entry point
+app.get('/shorten/:url(*)', (req, res) => shortenURL(req, res) );             // Shortener entry point
+app.get('/short/:shortcode', (req, res) => retrieveURL(req, res) );           // Redirect entry point
 
-
+// -- File Metadata Microservice -- \\
+app.use( '/filesize', express.static( path.join(__dirname + '/file-metadata/public') ) );   // automatically serve static files in the timestamp public folder, in this case index.html
+// app.post();
 
 //-----------------------
 //    Resources
@@ -73,6 +75,9 @@ app.get('/short/:shortcode', (req, res) => retrieveURL(req, res) );       // Red
 // http://stackoverflow.com/questions/22285921/how-to-handle-user-agent-in-nodejs-environment
 // https://www.npmjs.com/package/useragent
 
-// -- URL Shortener API -- \\
+// *** URL Shortener API
 // Known bugs
-// - MongoDB connection timeout
+// - MongoDB connection timeout (30 sec wait time)
+
+//
+// https://www.npmjs.com/package/multer
