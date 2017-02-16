@@ -57,7 +57,7 @@ app.get('/shorten/:url(*)', (req, res) => shortenURL(req, res) );             //
 app.get('/short/:shortcode', (req, res) => retrieveURL(req, res) );           // Redirect entry point
 
 // -- File Metadata Microservice -- \\
-app.use( '/filesize', express.static( path.join(__dirname + '/file-metadata/public') ) );   // automatically serve static files in the timestamp public folder, in this case index.html
+app.use( '/filedata', express.static( path.join(__dirname + '/file-metadata/public') ) );   // automatically serve static files in the timestamp public folder, in this case index.html
 // app.post();
 
 //-----------------------

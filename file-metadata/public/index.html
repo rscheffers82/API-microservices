@@ -26,22 +26,17 @@
           <blockquote>
               User stories:
               <ol>
-                <li>I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</li>
-                <li>If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.</li>
-                <li>When I visit that shortened URL, it will redirect me to my original link.</li>
+                <li>I can submit a FormData object that includes a file upload.</li>
+                <li>When I submit something, I will receive the file size in bytes within the JSON response.</li>
               </ol>
           </blockquote>
           <h3>Example usage:</h3>
-<pre>
-    <code class="">http://rs82.herokuapp.com/shorten/http://www.google.com</code>
-    <code class="">http://rs82.herokuapp.com/shorten/http://www.asubdoamin.atsomereallylongurl.com/evenlonger</code>
-</pre>
+            Use the below form to upload a file and get information about it
           <h3>Example output:</h3>
           <code>
                 <pre>
   {
-    "url": "http://www.google.com",
-    "shorturl": "http://rs82.herokuapp.com/short/a11c"
+    "size": 5120,
   }
                 </pre>
           </code>
