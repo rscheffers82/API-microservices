@@ -1,5 +1,6 @@
 
 <!-- Example: https://fuschia-custard.gomix.me -->
+<!-- http://www.material-css.com -->
 <!-- This is a static file -->
 <!-- served from the routes in server.js -->
 
@@ -13,21 +14,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="http://www.material-css.com/material-css.css" type="text/css" rel="stylesheet" />
     <link type="text/css" rel="stylesheet" href="style.css">
   </head>
   <body>
     <header>
-      <h1 class="header">Exercise Tracker API</h1>
+      <h1 class="mc-title">Exercise Tracker API</h1>
     </header>
 
     <main>
-      <div class="box"></div>
+        <div class="box mc-card">
+        <header>
+          <h2 class="mc-subtitle">Create a new user</h1>
+        </header>
+        <main>
+          <form>
+            <input type="text" name="user" placeholder="username" />
+            <input type="submit" value="Create user" />
+          </form>
+        </main>
+      </div>
+
+      <div class="box mc-card">
+        <header>
+          <h2 class="mc-subtitle">Add exercises</h1>
+        </header>
+        <form>
+          <input type="text" name="user" placeholder="userId" />
+          <input type="text" name="description" placeholder="description" />
+          <input type="text" name="duration" placeholder="duration (minutes)" />
+          <!-- <input type="text" name="date"  /> -->
+          <input type="text" id="datepicker" placeholder="select a date"name="date" />
+          <!-- <button class="today">Today</button> -->
+          <input type="submit" value="Add exercise" />
+        </form>
+
+      </div>
+
+      <!-- <div class="box">
+        <header>
+          <h2 class="box-header">Create a new user</h1>
+        </header>
+        <main>
+
+        </main>
+      </div> -->
 
     </main>
 
-    <footer>
+    <footer class="mc-footer">
       <a href="http://royscheffers.com" target="_blank">An app by Roy Scheffers</a>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./functions.js"></script>
   </body>
 </html>
