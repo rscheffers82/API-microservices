@@ -1,7 +1,7 @@
 {
-  "name": "timestamp-microservice",
+  "name": "api-projects",
   "version": "1.0.0",
-  "description": "Simple full-stack app that provides back a json object with the unix and human readable time",
+  "description": "Several full-stack API apps that take in data and provide back a JSON response",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

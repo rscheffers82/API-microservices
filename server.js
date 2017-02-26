@@ -15,12 +15,12 @@ const MONGOLAB_URI = process.env.MONGOLAB_URI;
 //-----------------------
 //    MongoDB connection
 //-----------------------
-mongoose.connect(MONGOLAB_URI);
-mongoose.connection
-  .once('open', () => console.log('MongoDB: We are connected') )
-  .on('error', (error) => {
-    console.warn('Warning: ', error);
-  });
+// mongoose.connect(MONGOLAB_URI);
+// mongoose.connection
+//   .once('open', () => console.log('MongoDB: We are connected') )
+//   .on('error', (error) => {
+//     console.warn('Warning: ', error);
+//   });
 
 
 //-----------------------
@@ -64,6 +64,15 @@ app.get('/short/:shortcode', (req, res) => retrieveURL(req, res) );           //
 app.use( '/filedata', express.static( path.join(__dirname + '/file-metadata/public') ) );   // automatically serve static files in the timestamp public folder, in this case index.html
 app.post( '/analyse-file', upload.single('file1'), (req, res) => filedata(req, res) );
 
+// -- Exercise Tracker API -- \\
+app.use( '/exercise', express.static( path.join(__dirname + '/exercise-tracker/public') ) );   // automatically serve static files in the timestamp public folder, in this case index.html
+
+// GET /api/exercise/log?{userId}[&from][&to][&limit]
+// { } = required, [ ] = optional
+// from, to = dates (yyyy-mm-dd); limit = number
+app.get( '/exercise/log', (req, res) => {} );
+app.post( '/exercise/new-user', (req, res) => {} );
+app.post( '/exercise/add', (req, res) => {} );
 
 
 //-----------------------
