@@ -2,7 +2,7 @@ var moment = require('moment');
 
 var checkForDate = function(rawInputOrigin) {
 
-  rawInput = rawInputOrigin;
+  var rawInput = rawInputOrigin;
   rawInput = rawInput.replace(/(st|nd|rd|th)/g,'');   // remove st, nd, rd, th from the day if provided
   const unixDate = Date.parse(rawInput);              // try to convert a natural date to a unix timestamp
   const naturalDateFormat = 'MMM D YYYY';

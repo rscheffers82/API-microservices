@@ -1,16 +1,16 @@
 const express = require('express');
 const path = require('path');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
 var multer  = require('multer');
 var upload = multer({ dest: 'file-metadata/uploads' });
 
 const checkForDate = require('./timestamp-ms/API');
 const headerAPI = require('./request-header');
-const { shortenURL, retrieveURL } = require('./url-shortener/API')
+const { shortenURL, retrieveURL } = require('./url-shortener/API');
 const filedata = require('./file-metadata/API');
 
-const MONGOLAB_URI = process.env.MONGOLAB_URI;
+// const MONGOLAB_URI = process.env.MONGOLAB_URI;
 
 //-----------------------
 //    MongoDB connection
@@ -41,7 +41,7 @@ console.log('API projects app: Service listening on port:', PORT);
 app.use( express.static( path.join(__dirname + '/public') ) );
 app.get('/', function(req, res){
   res.sendFile( path.join(__dirname + '/index.html') );
-})
+});
 
 // -- Timestamp API -- \\
 app.use( '/timestamp', express.static( path.join(__dirname + '/timestamp-ms/public') ) );   // automatically serve static files in the timestamp public folder, in this case index.html
@@ -70,9 +70,9 @@ app.use( '/exercise', express.static( path.join(__dirname + '/exercise-tracker/p
 // GET /api/exercise/log?{userId}[&from][&to][&limit]
 // { } = required, [ ] = optional
 // from, to = dates (yyyy-mm-dd); limit = number
-app.get( '/exercise/log', (req, res) => {} );
-app.post( '/exercise/new-user', (req, res) => {} );
-app.post( '/exercise/add', (req, res) => {} );
+// app.get( '/exercise/log', (req, res) => {} );
+// app.post( '/exercise/new-user', (req, res) => {} );
+// app.post( '/exercise/add', (req, res) => {} );
 
 
 //-----------------------

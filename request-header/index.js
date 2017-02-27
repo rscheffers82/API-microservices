@@ -15,6 +15,6 @@ var headerAPI = function(req) {
   //                   os.arch();
   header.software = ua.match( /\((.*?)\)/ )[1];
   return header;
-}
+};
 
 module.exports = headerAPI;

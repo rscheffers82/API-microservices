@@ -1,7 +1,7 @@
 const Links = require ('../model/links');
 
 function validURL(url) {
-  urlRegex = /^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,7})([\/\w \.-]*)*\/?$/
+  var urlRegex = /^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,7})([\/\w \.-]*)*\/?$/;
   return url.match( urlRegex ) !== null;
 }
 
@@ -29,8 +29,8 @@ exports.shortenURL = function(req, res) {
     })
     .catch( (error) => {
       res.status(422).json({ error: error });
-    })
-}
+    });
+};
 
 exports.retrieveURL = function(req, res) {
   const url = /* req.protocol + '://' + */ req.hostname + req.url;
@@ -45,7 +45,7 @@ exports.retrieveURL = function(req, res) {
         res.redirect(link.url);
         // res.json({ url: link.url });
       } else {
-      res.status(422).json({ error: `No URL found for: ${url}` })
+        res.status(422).json({ error: `No URL found for: ${url}` });
       }
     })
     .catch( (error) => {
