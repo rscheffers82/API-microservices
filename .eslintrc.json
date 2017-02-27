@@ -5,6 +5,9 @@
       "node": true
     },
     "extends": "eslint:recommended",
+    "globals": {
+      "$": 1
+    },
     "parserOptions": {
         "sourceType": "module",
         "allowImportExportEverywhere": true

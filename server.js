@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 // const mongoose = require('mongoose');
 
 var multer  = require('multer');
@@ -29,9 +30,9 @@ const filedata = require('./file-metadata/API');
 const PORT = process.env.PORT || 8080;
 
 var app = express();
+app.use(bodyParser.json());
 app.listen(PORT);
-console.log('API projects app: Service listening on port:', PORT);
-
+console.log('API projects app: Service listening on port:', PORT);      // eslint-disable-line no-console
 
 //-----------------------
 //    Routes

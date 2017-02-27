@@ -1,9 +1,9 @@
 
 $( function() {
-  $( "#datepicker" ).datepicker({ dateFormat: "mm-dd-yy" });
-  $( "#datepicker" ).datepicker( "option", "showAnim", "slideDown" );
-  $( "#datepicker" ).datepicker();
-  })();
+  $( '#datepicker' ).datepicker({ dateFormat: 'mm-dd-yy' });
+  $( '#datepicker' ).datepicker( 'option', 'showAnim', 'slideDown' );
+  $( '#datepicker' ).datepicker();
+})();
 
 // $('.today').on('click', function(e) {
 //   e.preventDefault();
