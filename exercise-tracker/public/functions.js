@@ -1,16 +1,33 @@
 
 $( function() {
-  $( '#add-datepicker' ).datepicker({ dateFormat: 'mm-dd-yy' });
+  $( '#add-datepicker' ).datepicker({
+    dateFormat: 'mm-dd-yy',
+    onSelect: function() {
+      $('#add-label').addClass('mc-label mc-completed-label');
+    }
+  });
   $( '#add-datepicker' ).datepicker( 'option', 'showAnim', 'slideDown' );
   $( '#add-datepicker' ).datepicker();
 
-  $( '#from-datepicker' ).datepicker({ dateFormat: 'mm-dd-yy' });
+  $( '#from-datepicker' ).datepicker({
+    dateFormat: 'mm-dd-yy',
+    onSelect: function() {
+      $('#from-label').addClass('mc-label mc-completed-label');
+    }
+  });
   $( '#from-datepicker' ).datepicker( 'option', 'showAnim', 'slideDown' );
   $( '#from-datepicker' ).datepicker();
 
-  $( '#to-datepicker' ).datepicker({ dateFormat: 'mm-dd-yy' });
+  $( '#to-datepicker' ).datepicker({
+    dateFormat: 'mm-dd-yy',
+    onSelect: function() {
+      $('#to-label').addClass('mc-label mc-completed-label');
+    }
+  });
   $( '#to-datepicker' ).datepicker( 'option', 'showAnim', 'slideDown' );
   $( '#to-datepicker' ).datepicker();
+
+  // mc-label mc-completed-label
 })();
 
 // $('.today').on('click', function(e) {
