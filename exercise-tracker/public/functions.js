@@ -1,3 +1,13 @@
+// var mc = require('materialcss');
+
+
+$('#main-menu').click(function() {
+  $('body > .mc-navigation').removeClass('closed');
+});
+
+$('#close-main-menu').click(function() {
+  $('body > .mc-navigation').addClass('closed');
+});
 
 $( function() {
   $( '#add-datepicker' ).datepicker({
@@ -32,5 +42,5 @@ $( function() {
 
 // $('.today').on('click', function(e) {
 //   e.preventDefault();
-//   $( "#datepicker" ).datepicker( "setDate", "10-12-2012" );
+//   $( '#datepicker' ).datepicker( 'setDate', '10-12-2012' );
 // });

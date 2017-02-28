@@ -5,6 +5,25 @@ body {
   padding: 25px 0 0 0;
 }
 
+#main-menu {
+  margin: -20px 0 0 15px;
+}
+
+#main-menu:hover {
+  cursor: pointer !important;
+}
+
+body > .mc-navigation {
+  top: 0;
+  height: 100%;
+  padding: 0;
+
+}
+
+body > .mc-navigation .mc-button{
+  margin: 10px 10px;
+}
+
 header.mc-header{
   width: 100%;
   left: 0;
@@ -43,4 +62,8 @@ header.mc-header{
 body footer.mc-footer{
   width: 80%;
   left: 10%;
+}
+
+.closed {
+  transform: translateX(-100%);
 }
