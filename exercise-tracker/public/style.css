@@ -1,24 +1,46 @@
 body {
   background-color: #eee;
-  font-size: 1.1rem;
+  /*font-size: 1.1rem;*/
   font-family: 'Roboto', sans-serif;
-  padding: 0px;
-}
-h3 {
-  color: #dd1111;
+  padding: 25px 0 0 0;
 }
 
-input {
-  width: 95%;
-  margin: 5px 0px;
-  padding: 5px 2.5%;
-  border: 1px solid;
-}
-
-input[type="submit"] {
+header.mc-header{
   width: 100%;
+  left: 0;
+}
+
+.main-box {
+  /*display: flex;*/
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.mc-card > .mc-header > .mc-title {
+    font-size: 17px;
+    background-color: rgba(29, 20, 20, 0.44);
+    width: 100%;
+}
+
+.mc-card > .mc-content {
+  padding-bottom: 10px;
+}
+
+.mc-content .mc-button {
+  left: 5%;
+  font-weight: normal;
+}
+
+.mc-input {
+  width: 85%;
+  left: 5%;
 }
 
 .box {
   padding: 20px;
+}
+
+body footer.mc-footer{
+  width: 80%;
+  left: 10%;
 }
