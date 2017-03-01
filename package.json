@@ -28,6 +28,7 @@
     "eslint-config-airbnb-base": "^11.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jquery": "^1.1.1",
+    "mdi": "^1.8.36",
     "nodemon": "^1.11.0"
   }
 }

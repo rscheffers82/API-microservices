@@ -2,68 +2,50 @@ body {
   background-color: #eee;
   /*font-size: 1.1rem;*/
   font-family: 'Roboto', sans-serif;
-  padding: 25px 0 0 0;
+  /*padding: 25px 0 0 0;*/
 }
 
-#main-menu {
-  margin: -20px 0 0 15px;
+.main-menu {
+  margin: 0;
+  padding: 10px;
+  font-size: 1.75rem;
 }
 
-#main-menu:hover {
-  cursor: pointer !important;
+.main-menu:hover {
+  cursor: pointer;
 }
 
-body > .mc-navigation {
-  top: 0;
-  height: 100%;
-  padding: 0;
-
+.input-field {
+  width: 100% !important;
+  padding: 0 !important;
 }
 
-body > .mc-navigation .mc-button{
-  margin: 10px 10px;
+.card {
+  transition: box-shadow .25s;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
 }
 
-header.mc-header{
-  width: 100%;
-  left: 0;
+.card:hover {
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.14),0 1px 18px 0 rgba(0,0,0,0.12),0 3px 5px -1px rgba(0,0,0,0.3);
 }
 
-.main-box {
-  /*display: flex;*/
-  max-width: 80%;
-  margin: 0 auto;
-}
-
-.mc-card > .mc-header > .mc-title {
-    font-size: 17px;
-    background-color: rgba(29, 20, 20, 0.44);
+.card .card-image .card-title {
+    max-width: 100%;
+    padding: 10px;
+    background-color: #0f0e0e80;
     width: 100%;
 }
 
-.mc-card > .mc-content {
-  padding-bottom: 10px;
-}
-
-.mc-content .mc-button {
-  left: 5%;
-  font-weight: normal;
-}
-
-.mc-input {
-  width: 85%;
-  left: 5%;
-}
-
-.box {
-  padding: 20px;
-}
-
-body footer.mc-footer{
-  width: 80%;
-  left: 10%;
-}
-
-.closed {
-  transform: translateX(-100%);
-}
+/* label color */
+ .input-field label {
+   /*color: #000;*/
+ }
+ /* label focus color */
+ .input-field input[type=text]:focus + label {
+   color: #f9a825;
+ }
+ /* label underline focus color */
+ .input-field input[type=text]:focus {
+   border-bottom: 1px solid #f9a825;
+   box-shadow: 0 1px 0 0 #f9a825;
+ }
