@@ -2,13 +2,17 @@ body {
   background-color: #eee;
   /*font-size: 1.1rem;*/
   font-family: 'Roboto', sans-serif;
-  /*padding: 25px 0 0 0;*/
 }
 
 .main-menu {
+  position: absolute;
+  top: 0px;
+  left: 5px;
   margin: 0;
-  padding: 10px;
+  padding: 0 10px;
   font-size: 1.75rem;
+  z-index: 50;
+  background: #fff6;
 }
 
 .main-menu:hover {
@@ -51,6 +55,10 @@ body {
   font-size: 1.6rem;
 }
 
+.main-box {
+  margin-top: 10px;
+}
+
 .input-field {
   width: 100% !important;
   padding: 0 !important;
@@ -85,3 +93,8 @@ body {
    border-bottom: 1px solid #f9a825;
    box-shadow: 0 1px 0 0 #f9a825;
  }
+
+.page-footer {
+  text-align: center;
+  padding: 20px;
+}
