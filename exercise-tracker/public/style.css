@@ -49,10 +49,27 @@ body {
 
 .side-nav li.nav-icons i{
   font-size: 1.5rem;
+  color: #2bbbad;
 }
+
+.side-nav a {
+  font-weight: 300;
+  font-size: 17px;
+}
+
 
 .intro .mdi-information-outline {
   font-size: 1.6rem;
+}
+
+.side-nav li a.bare-link {
+  padding: 0;
+  margin: 0;
+  display: inline;
+  height: 0px;
+  line-height: 0px;
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 .main-box {
