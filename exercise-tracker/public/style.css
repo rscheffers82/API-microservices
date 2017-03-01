@@ -15,6 +15,42 @@ body {
   cursor: pointer;
 }
 
+.side-nav .userView {
+  height: 200px;
+}
+
+.side-nav .info{
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  background-color: #0f0e0e80;
+  width: 100%;
+}
+
+.side-nav .info a {
+  height: 30px;
+  line-height: 10px;
+  padding: 10px;
+  color: #fafafa;
+}
+
+.side-nav .info span {
+  font-weight: 300;
+}
+
+.side-nav li.intro {
+  line-height: 1.6rem;
+  padding: 0 15px;
+}
+
+.side-nav li.nav-icons i{
+  font-size: 1.5rem;
+}
+
+.intro .mdi-information-outline {
+  font-size: 1.6rem;
+}
+
 .input-field {
   width: 100% !important;
   padding: 0 !important;
