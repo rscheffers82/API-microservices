@@ -19,6 +19,18 @@ $('.button-collapse').sideNav({
   }
 );
 
+$('#menu-add-user').click(function(){
+  $('input[name="user_name"]').focus();
+});
+
+$('#menu-add-exercise').click(function(){
+  $('input[name="user-id"]').focus();
+});
+
+$('#menu-search-logs').click(function(){
+  $('input[name="user-id-logs"]').focus();
+});
+
   // // Show sideNav
   // $('.button-collapse').sideNav('show');
   // // Hide sideNav
