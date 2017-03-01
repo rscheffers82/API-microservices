@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 var multer  = require('multer');
 var upload = multer({ dest: 'file-metadata/uploads' });
@@ -11,17 +11,17 @@ const headerAPI = require('./request-header');
 const { shortenURL, retrieveURL } = require('./url-shortener/API');
 const filedata = require('./file-metadata/API');
 
-// const MONGOLAB_URI = process.env.MONGOLAB_URI;
+const MONGOLAB_URI = process.env.MONGOLAB_URI || 'mongodb://localhost/API-project';
 
 //-----------------------
 //    MongoDB connection
 //-----------------------
-// mongoose.connect(MONGOLAB_URI);
-// mongoose.connection
-//   .once('open', () => console.log('MongoDB: We are connected') )
-//   .on('error', (error) => {
-//     console.warn('Warning: ', error);
-//   });
+mongoose.connect(MONGOLAB_URI);
+mongoose.connection
+  .once('open', () => console.log('MongoDB: We are connected') )
+  .on('error', (error) => {
+    console.warn('Warning: ', error);
+  });
 
 
 //-----------------------
