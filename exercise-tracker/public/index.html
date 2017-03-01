@@ -93,13 +93,14 @@
               <span class="card-title">Create new user</span>
             </div>
             <div class="card-content">
-              <h6 class="" >POST /api/exercise/new-user</h6>
-              <form>
+              <h6 class="">POST /api/exercise/new-user</h6>
+              <form action="new-user" method="POST" enctype="application/x-www-form-urlencoded">
                 <div class="input-field col s6">
-                  <input name="user_name" type="text" class="validate">
+                  <input name="username" type="text" class="validate">
                   <label for="user_name">Enter a username</label>
                 </div>
-                <button class="btn waves-effect waves-light green" type="submit" name="newuser">New user
+                <button class="btn waves-effect waves-light green" type="submit" name="newuser">
+                  New user
                   <i class="mdi mdi-account-plus right"></i>
                 </button>
               </form>
@@ -115,7 +116,7 @@
             </div>
             <div class="card-content">
               <h6 class="">POST /api/exercise/add</h6>
-              <form>
+              <form action="add" method="POST" enctype="application/x-www-form-urlencoded">
 
                 <div class="input-field col s6">
                   <input name="user-id" type="text" class="validate" />
@@ -153,7 +154,7 @@
             </div>
             <div class="card-content">
               <h6 class="">GET /api/exercise/log</h6>
-              <form>
+              <form action="log" method="GET">
 
                 <div class="input-field col s6">
                   <input name="user-id-logs" type="text" class="validate" />

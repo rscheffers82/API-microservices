@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const http = require('http');
 const mongoose = require('mongoose');
 
 var multer  = require('multer');
@@ -10,6 +11,7 @@ const checkForDate = require('./timestamp-ms/API');
 const headerAPI = require('./request-header');
 const { shortenURL, retrieveURL } = require('./url-shortener/API');
 const filedata = require('./file-metadata/API');
+const { newUser } = require('./exercise-tracker/API');
 
 const MONGOLAB_URI = process.env.MONGOLAB_URI || 'mongodb://localhost/API-project';
 
@@ -28,11 +30,10 @@ mongoose.connection
 //    Express settings
 //-----------------------
 const PORT = process.env.PORT || 8080;
-
 var app = express();
-app.use(bodyParser.json());
-app.listen(PORT);
-console.log('API projects app: Service listening on port:', PORT);      // eslint-disable-line no-console
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());  //parses all incoming requests into json
+
 
 //-----------------------
 //    Routes
@@ -66,14 +67,22 @@ app.use( '/filedata', express.static( path.join(__dirname + '/file-metadata/publ
 app.post( '/analyse-file', upload.single('file1'), (req, res) => filedata(req, res) );
 
 // -- Exercise Tracker API -- \\
-app.use( '/exercise', express.static( path.join(__dirname + '/exercise-tracker/public') ) );   // automatically serve static files in the timestamp public folder, in this case index.html
+app.use( '/exercise', express.static( path.join(__dirname + '/exercise-tracker/public') ) );
+app.post( '/exercise/new-user', (req, res) => newUser(req, res) );
 
 // GET /api/exercise/log?{userId}[&from][&to][&limit]
 // { } = required, [ ] = optional
 // from, to = dates (yyyy-mm-dd); limit = number
 // app.get( '/exercise/log', (req, res) => {} );
-// app.post( '/exercise/new-user', (req, res) => {} );
 // app.post( '/exercise/add', (req, res) => {} );
+
+//-----------------------
+//    Server settings
+//-----------------------
+const server = http.createServer(app);
+app.listen(PORT);
+console.log('API projects app: Service listening on port:', PORT);      // eslint-disable-line no-console
+
 
 
 //-----------------------
