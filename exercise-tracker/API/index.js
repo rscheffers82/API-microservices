@@ -40,7 +40,11 @@ exports.addExercise = function(req, res) {
     .catch( (error) => res.json({ error }) );
 };
 
-
+exports.showLogs = function(req, res) {
+  const { userId, fromDate, toDate } = req.query;
+  console.log(req.query);
+  res.json({ message: 'In logs', userId, fromDate, toDate });
+};
   // const url = /* req.protocol + '://' + */ req.hostname + req.url;
   // const shortcode = req.params.shortcode;
   //
