@@ -16,9 +16,31 @@ exports.newUser = function(req, res) {
 };
 
 exports.addExercise = function(req, res) {
+  const { userId, description, duration, date } = req.body;
+  // Check on valid input, here or at the front-end
+
+  User.findOne({ userId })
+    .then( (user) => {
+      if (user) {
+        const exercise = new Exercise({
+          description,
+          duration,
+          date
+        });
+        exercise.userId.push(user);
+        user.exercises.push(exercise);
+        return Promise.all([exercise.save(), user.save()]);
+      }
+      else return new Promise( (resolve,reject) => reject('UserId not found') );
+    })
+    .then( (exercise) => {
+      if(!exercise.isNew) res.json({ userId, description, duration, date });
+      else return new Promise( (resolve,reject) => reject('Exercise could not be saved') );
+    })
+    .catch( (error) => res.json({ error }) );
+};
 
 
-  res.json();
   // const url = /* req.protocol + '://' + */ req.hostname + req.url;
   // const shortcode = req.params.shortcode;
   //
@@ -37,4 +59,3 @@ exports.addExercise = function(req, res) {
   //   .catch( (error) => {
   //     res.status(422).json({ error: error });
   //   });
-};

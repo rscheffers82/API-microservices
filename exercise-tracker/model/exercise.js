@@ -7,7 +7,6 @@ const ExerciseSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'user'
   }],
-  username: String,
   description: String,
   duration: Number,
   date: Date

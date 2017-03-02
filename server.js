@@ -11,7 +11,7 @@ const checkForDate = require('./timestamp-ms/API');
 const headerAPI = require('./request-header');
 const { shortenURL, retrieveURL } = require('./url-shortener/API');
 const filedata = require('./file-metadata/API');
-const { newUser } = require('./exercise-tracker/API');
+const { newUser, addExercise } = require('./exercise-tracker/API');
 
 const MONGOLAB_URI = process.env.MONGOLAB_URI || 'mongodb://localhost/API-project';
 
@@ -69,12 +69,12 @@ app.post( '/analyse-file', upload.single('file1'), (req, res) => filedata(req, r
 // -- Exercise Tracker API -- \\
 app.use( '/exercise', express.static( path.join(__dirname + '/exercise-tracker/public') ) );
 app.post( '/exercise/new-user', (req, res) => newUser(req, res) );
+app.post( '/exercise/add', (req, res) => addExercise(req, res) );
 
 // GET /api/exercise/log?{userId}[&from][&to][&limit]
 // { } = required, [ ] = optional
 // from, to = dates (yyyy-mm-dd); limit = number
 // app.get( '/exercise/log', (req, res) => {} );
-// app.post( '/exercise/add', (req, res) => {} );
 
 //-----------------------
 //    Server settings
