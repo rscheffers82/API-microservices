@@ -20,9 +20,9 @@ const MONGOLAB_URI = process.env.MONGOLAB_URI || 'mongodb://localhost/API-projec
 //-----------------------
 mongoose.connect(MONGOLAB_URI);
 mongoose.connection
-  .once('open', () => console.log('MongoDB: We are connected') )
+  .once('open', () => console.log('MongoDB: We are connected') )                  /* eslint-ignore no-console */
   .on('error', (error) => {
-    console.warn('Warning: ', error);
+    console.warn('Warning: ', error);                                             /* eslint-ignore no-console */
   });
 
 
