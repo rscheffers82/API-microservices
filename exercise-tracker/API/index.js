@@ -1,6 +1,7 @@
 const User = require ('../model/user');
 const Exercise = require ('../model/exercise');
 
+
 exports.newUser = function(req, res) {
   const name = req.body.username;
 
@@ -14,6 +15,7 @@ exports.newUser = function(req, res) {
     })
     .catch( (error) => res.status(422).json({ error }) );
 };
+
 
 exports.addExercise = function(req, res) {
   const { userId, description, duration, date } = req.body;
@@ -37,29 +39,35 @@ exports.addExercise = function(req, res) {
       if(!exercise.isNew) res.json({ userId, description, duration, date });
       else return new Promise( (resolve,reject) => reject('Exercise could not be saved') );
     })
-    .catch( (error) => res.json({ error }) );
+    .catch( (error) => res.status(422).json({ error }) );
 };
+
 
 exports.showLogs = function(req, res) {
   const { userId, fromDate, toDate } = req.query;
-  console.log(req.query);
-  res.json({ message: 'In logs', userId, fromDate, toDate });
+  // see if the userId exists
+
+  User.findOne({ userId })
+    .populate({
+      path: 'exercises',
+      select: 'description duration date',
+      options: { sort: { date: -1 } }
+    })
+    .then( (user) => {
+      if (!user) return new Promise( (resolve,reject) => reject('UserId not found') );
+      else {
+        const { userId, name } = user;
+        res.json({
+          search: {
+            userId,
+            name,
+            fromDate,
+            toDate
+          },
+          total: user.total,
+          exercises: user.exercises
+        });
+      }
+    })
+    .catch( (error) => res.status(422).json({ error }));
 };
-  // const url = /* req.protocol + '://' + */ req.hostname + req.url;
-  // const shortcode = req.params.shortcode;
-  //
-  // Links.findOne({ shortcode: shortcode })
-  //   .then( (link) => {
-  //     if (link) {
-  //       // http://localhost:8080/short/e0Mi
-  //       link.visits++;
-  //       link.save();
-  //       res.redirect(link.url);
-  //       // res.json({ url: link.url });
-  //     } else {
-  //       res.status(422).json({ error: `No URL found for: ${url}` });
-  //     }
-  //   })
-  //   .catch( (error) => {
-  //     res.status(422).json({ error: error });
-  //   });

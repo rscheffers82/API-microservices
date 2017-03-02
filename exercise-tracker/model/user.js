@@ -20,7 +20,7 @@ const UserSchema = new Schema({
 
 UserSchema.virtual('total').get(function() {
   return this.exercises.length;
-})
+});
 
 // Create the model class
 const UserModel = mongoose.model('user', UserSchema);
