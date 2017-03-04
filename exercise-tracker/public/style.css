@@ -6,17 +6,23 @@ body {
 
 .main-menu {
   position: absolute;
-  top: 0px;
+  top: 5px;
   left: 5px;
   margin: 0;
   padding: 0 10px;
   font-size: 1.75rem;
   z-index: 50;
-  background: #fff6;
+  background: #f9a8254d;
+  border-radius: 2px;
+  border: 1px solid #f9a82566;
+  transition: all 1.5s ease-out;
 }
 
 .main-menu:hover {
   cursor: pointer;
+  background: #f9a82599;
+  border-radius: 2px;
+  border: 1px solid #f9a825;
 }
 
 .side-nav .userView {
@@ -49,7 +55,7 @@ body {
 
 .side-nav li.nav-icons i{
   font-size: 1.5rem;
-  color: #2bbbad;
+  color: #4CAF50;
 }
 
 .side-nav a {

@@ -20,15 +20,15 @@ $('.button-collapse').sideNav({
 );
 
 $('#menu-add-user').click(function(){
-  $('input[name="user_name"]').focus();
+  $('input[name="username"]').focus();
 });
 
 $('#menu-add-exercise').click(function(){
-  $('input[name="user-id"]').focus();
+  $('input[name="userId"]').focus();
 });
 
 $('#menu-search-logs').click(function(){
-  $('input[name="user-id-logs"]').focus();
+  $('input[name="userIdLogs"]').focus();
 });
 
   // // Show sideNav

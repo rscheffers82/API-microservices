@@ -44,10 +44,10 @@ exports.addExercise = function(req, res) {
 
 
 exports.showLogs = function(req, res) {
-  const { userId, fromDate, toDate } = req.query;
+  const { userIdLogs, fromDate, toDate } = req.query;
   // see if the userId exists
 
-  User.findOne({ userId })
+  User.findOne({ userId: userIdLogs })
     .populate({
       path: 'exercises',
       select: 'description duration date',
