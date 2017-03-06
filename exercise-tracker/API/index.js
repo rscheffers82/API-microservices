@@ -1,6 +1,6 @@
 const User = require ('../model/user');
 const Exercise = require ('../model/exercise');
-
+const moment = require ('moment');
 
 exports.newUser = function(req, res) {
   const name = req.body.username;
@@ -19,11 +19,12 @@ exports.newUser = function(req, res) {
 
 exports.addExercise = function(req, res) {
   const { userId, description, duration, date } = req.body;
-  // Check on valid input, here or at the front-end
+  // Dates are coming in in this format = 'YYYY-MM-DD';
 
   User.findOne({ userId })
     .then( (user) => {
       if (user) {
+        console.log('---1. Date: ', date);
         const exercise = new Exercise({
           description,
           duration,
@@ -36,7 +37,7 @@ exports.addExercise = function(req, res) {
       else return new Promise( (resolve,reject) => reject('UserId not found') );
     })
     .then( (exercise) => {
-      if(!exercise.isNew) res.json({ userId, description, duration, date });
+      if(!exercise.isNew) res.json({ userId, description, duration, date: moment(date).format('D MMM, YYYY') });
       else return new Promise( (resolve,reject) => reject('Exercise could not be saved') );
     })
     .catch( (error) => res.status(422).json({ error }) );
@@ -45,11 +46,26 @@ exports.addExercise = function(req, res) {
 
 exports.showLogs = function(req, res) {
   const { userIdLogs, fromDate, toDate } = req.query;
-  // see if the userId exists
 
-  User.findOne({ userId: userIdLogs })
+  var searchParams = (from, to) => {
+    let search = {};
+
+    if(from && to) search = { $gte: from, $lte: to };
+    else if (from) search = { $gte: from };
+    else if (to) search = { $lte: to };
+    return search;
+  };
+
+  // see if the userId exists
+  console.log('type of date: ', typeof fromDate);
+  console.log('--1. fromDate: ', fromDate);
+  console.log('--2. fromDate ISO? ', moment(fromDate, 'YYYY-MM-DD').toISOString() );
+  let fromISO = moment(fromDate, 'YYYY-MM-DD').toISOString();
+  let toISO = moment(toDate, 'YYYY-MM-DD').toISOString();
+  User.findOne({ userId: userIdLogs }, { exercises: fromISO }) //searchParams(fromISO, toISO) })
     .populate({
       path: 'exercises',
+      match: { date : searchParams(fromDate, toDate) },
       select: 'description duration date',
       options: { sort: { date: -1 } }
     })
