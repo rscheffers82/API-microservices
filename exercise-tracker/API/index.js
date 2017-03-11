@@ -25,11 +25,7 @@ exports.addExercise = function(req, res) {
     .then( (user) => {
       if (user) {
         console.log('---1. Date: ', date);
-        const exercise = new Exercise({
-          description,
-          duration,
-          date
-        });
+        const exercise = new Exercise({ description, duration, date });
         exercise.userId.push(user);
         user.exercises.push(exercise);
         return Promise.all([exercise.save(), user.save()]);
@@ -47,39 +43,29 @@ exports.addExercise = function(req, res) {
 exports.showLogs = function(req, res) {
   const { userIdLogs, fromDate, toDate } = req.query;
 
-  var searchParams = (from, to) => {
-    let search = {};
+  var populateExercises = (from, to) => {
+    let params = {
+      path: 'exercises',
+      // match: { date : populateExercises(fromDate, toDate) },
+      select: 'description duration date',
+      options: { sort: { date: -1 }}
+    };
 
-    if(from && to) search = { $gte: from, $lte: to };
-    else if (from) search = { $gte: from };
-    else if (to) search = { $lte: to };
-    return search;
+    if(from && to) params.match = { date : { $gte: from, $lte: to } };
+    else if (from) params.match = { date : { $gte: from } };
+    else if (to) params.match = { date : { $lte: to } };
+    return params;
   };
 
   // see if the userId exists
-  console.log('type of date: ', typeof fromDate);
-  console.log('--1. fromDate: ', fromDate);
-  console.log('--2. fromDate ISO? ', moment(fromDate, 'YYYY-MM-DD').toISOString() );
-  let fromISO = moment(fromDate, 'YYYY-MM-DD').toISOString();
-  let toISO = moment(toDate, 'YYYY-MM-DD').toISOString();
-  User.findOne({ userId: userIdLogs }, { exercises: fromISO }) //searchParams(fromISO, toISO) })
-    .populate({
-      path: 'exercises',
-      match: { date : searchParams(fromDate, toDate) },
-      select: 'description duration date',
-      options: { sort: { date: -1 } }
-    })
+  User.findOne({ userId: userIdLogs })
+    .populate( populateExercises(fromDate, toDate) )
     .then( (user) => {
       if (!user) return new Promise( (resolve,reject) => reject('UserId not found') );
       else {
         const { userId, name } = user;
         res.json({
-          search: {
-            userId,
-            name,
-            fromDate,
-            toDate
-          },
+          search: { userId, name, fromDate, toDate },
           total: user.total,
           exercises: user.exercises
         });
