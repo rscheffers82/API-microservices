@@ -197,3 +197,7 @@ li.collection-item.flex {
 #user-info .chip:last-child{
   margin-bottom: 0;
 }
+
+#results .error {
+  color: #ffaaaa;
+}

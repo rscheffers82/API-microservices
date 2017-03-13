@@ -42,7 +42,6 @@ exports.addExercise = function(req, res) {
 
 exports.showLogs = function(req, res) {
   const { userIdLogs, fromDate, toDate } = req.query;
-
   var populateExercises = (from, to) => {
     let params = {
       path: 'exercises',
