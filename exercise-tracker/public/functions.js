@@ -36,7 +36,7 @@ var createLogStructure = function() {
   '<li id="table-header" class="collection-item flex">' +
     '<div class="item"><span class="mdi mdi-calendar-text"></span>Date</div>' +
     '<div class="item"><span class="mdi mdi-pencil"></span>Description</div>' +
-    '<div class="item"><span class="mdi mdi-alarm"></span>Duration (Min)</div>' +
+    '<div class="item"><span class="mdi mdi-alarm"></span>Duration (min)</div>' +
   '</li>');
 };
 
@@ -112,3 +112,4 @@ $('#showLogs').on('click', function(e) {
       console.log(errorMessage);
     });
 });
+wN2F
