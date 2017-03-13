@@ -151,6 +151,7 @@ div.mdi-book-open-variant {
   opacity: 0;
   transition: opacity 2s ease-in-out;
   position: relative;
+  margin: 60px 0px 70px 0px;
 }
 
 #results.visible {
@@ -224,5 +225,5 @@ li.collection-item.flex {
 }
 
 #results .error {
-  color: #ffaaaa;
+  color: #e57373;
 }

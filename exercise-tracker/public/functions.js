@@ -36,7 +36,7 @@ var createLogStructure = function() {
   '<li id="table-header" class="collection-item flex">' +
     '<div class="item"><span class="mdi mdi-calendar-text"></span>Date</div>' +
     '<div class="item"><span class="mdi mdi-pencil"></span>Description</div>' +
-    '<div class="item"><span class="mdi mdi-alarm"></span>Duration</div>' +
+    '<div class="item"><span class="mdi mdi-alarm"></span>Duration (Min)</div>' +
   '</li>');
 };
 
@@ -60,7 +60,7 @@ $('#showLogs').on('click', function(e) {
   setTimeout(function(){
     $('#results').addClass('visible');
     $('html, body').animate({
-      scrollTop: $('#results').offset().top,
+      scrollTop: $('#results').offset().top-35,
     }, 2000);
   }, 500);
 
@@ -111,5 +111,4 @@ $('#showLogs').on('click', function(e) {
         '<div class="error"><strong>ERROR:</strong> ' + errorMessage + '</div>');
       console.log(errorMessage);
     });
-
 });
