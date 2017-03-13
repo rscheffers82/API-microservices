@@ -2,24 +2,34 @@ body {
   background-color: #eee;
   font-size: 1.1rem;
   font-family: 'Roboto', sans-serif;
-  padding: 10px 0 0 30px;
-}
-h3 {
-  color: #dd1111;
 }
 
-blockquote {
-  border-left: 6px solid #ccc;
-  margin-left: 20px;
-  padding-left: 20px;
-  margin-bottom: 40px;
-}
-
-li{
-  margin: 15px 5px;
-  padding-left: 10px;
+h1 {
+  text-align: center;
+  color: #444;
 }
 
 main {
   padding: 20px 0;
+}
+
+li, .card, .collapsible-body {
+  margin: 0;
+  padding: 0;
+}
+
+.collapsible {
+  margin: 2.5rem 0 1rem 0;
+}
+
+.collapsible-header .card-title {
+  line-height: 32px;
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.page-footer {
+  text-align: center;
+  padding: 20px;
 }
