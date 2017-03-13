@@ -66,7 +66,15 @@ exports.showLogs = function(req, res) {
         res.json({
           search: { userId, name, fromDate, toDate },
           total: user.total,
-          exercises: user.exercises
+          exercises: user.exercises.map(function(exercise){
+            // exercise.bla = moment(exercise.date).format('D MMM, YYYY');
+            return {
+              _id: exercise._id,
+              description: exercise.description,
+              duration: exercise.duration,
+              date: moment(exercise.date).format('D MMM, YYYY')
+            };
+          })
         });
       }
     })
