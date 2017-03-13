@@ -147,6 +147,31 @@ div.mdi-book-open-variant {
 
 #results {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  position: relative;
+}
+
+#results.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+#results span.mdi-close {
+  font-size: 150%;
+  color: #333;
+}
+
+#results a {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+}
+
+#results span.mdi-close::before {
+  text-align: center;
+  width: 100%;
 }
 
 #results h3 {

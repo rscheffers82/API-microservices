@@ -40,13 +40,27 @@ var createLogStructure = function() {
   '</li>');
 };
 
+var destroyLogStructure = function() {
+  $('#results').removeClass('visible');
+
+  setTimeout(function(){
+    $('#results ul.collection').html('');
+    $('html, body').animate({
+      scrollTop: 0
+    }, 1500);
+  }, 500);
+
+
+};
+
 $('#showLogs').on('click', function(e) {
   e.preventDefault();
   createLogStructure();
 
   setTimeout(function(){
+    $('#results').addClass('visible');
     $('html, body').animate({
-      scrollTop: $('#results').offset().top
+      scrollTop: $('#results').offset().top,
     }, 2000);
   }, 500);
 
@@ -98,9 +112,4 @@ $('#showLogs').on('click', function(e) {
       console.log(errorMessage);
     });
 
-  // jqxhr.complete(function() {
-  //   console.log('request complete');
-  // });
-
 });
-//NeFQ
