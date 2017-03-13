@@ -29,7 +29,13 @@ $('#menu-search-logs').click(function(){
   $('input[name="userIdLogs"]').focus();
 });
 
-  // // Show sideNav
-  // $('.button-collapse').sideNav('show');
-  // // Hide sideNav
-  // $('.button-collapse').sideNav('hide');
+$('#showLogs').on('click', function(e) {
+  e.preventDefault();
+  let html = '';
+  html += '<li class="collection-item flex">' +
+              '<div class="item">15th Nov 1982</div>' +
+              '<div class="item">Pushups</div>' +
+              '<div class="item">3 minutes</div>' +
+            '</li>';
+  $('#results ul.collection').append(html);
+});

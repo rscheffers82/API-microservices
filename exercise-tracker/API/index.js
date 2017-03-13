@@ -24,7 +24,7 @@ exports.addExercise = function(req, res) {
   User.findOne({ userId })
     .then( (user) => {
       if (user) {
-        console.log('---1. Date: ', date);
+        // console.log('---1. Date: ', date);
         const exercise = new Exercise({ description, duration, date });
         exercise.userId.push(user);
         user.exercises.push(exercise);
