@@ -2,6 +2,9 @@ body {
   background-color: #eee;
   font-size: 1.1rem;
   font-family: 'Roboto', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 h1 {
@@ -9,8 +12,11 @@ h1 {
   color: #444;
 }
 
+main.inner {
+  padding-left: 30px;
+}
 main {
-  padding: 20px 0;
+  flex: 1 0 auto;
 }
 
 li, .card, .collapsible-body {

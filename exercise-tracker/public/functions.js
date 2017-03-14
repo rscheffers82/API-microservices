@@ -49,8 +49,6 @@ var destroyLogStructure = function() {
       scrollTop: 0
     }, 1500);
   }, 500);
-
-
 };
 
 $('#showLogs').on('click', function(e) {
@@ -112,4 +110,3 @@ $('#showLogs').on('click', function(e) {
       console.log(errorMessage);
     });
 });
-wN2F
