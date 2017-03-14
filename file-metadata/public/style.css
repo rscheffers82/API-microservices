@@ -1,11 +1,61 @@
 body {
   background-color: #eee;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-family: 'Roboto', sans-serif;
-  padding: 10px 0 0 30px;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
+
 h3 {
-  color: #dd1111;
+  color: #dd5656;
+  font-size: 125%;
+}
+
+.nav-wrapper {
+  background-color: #87b5f2;
+}
+
+nav .title {
+  padding: 0 50px;
+  color: #fcfcff;
+}
+
+.dropdown-content li > a {
+  transition: background-color .25s ease-out;
+}
+
+.dropdown-content li > a:hover {
+  color: #333 !important;
+}
+
+svg {
+  fill: currentColor;
+}
+
+svg.return {
+  width: 19px;
+  height: 19px;
+  padding-top: 5px;
+  position: relative;
+  top: 5px;
+  padding-right: 5px;
+  margin-right: 7px;
+}
+
+svg.arrow-down {
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  height: 25px;
+  width: 25px;
+  content: '';
+  color: #fcfcff;
+}
+
+main {
+  flex: 1 0 auto;
+  padding-left: 30px;
 }
 
 blockquote {
@@ -15,7 +65,7 @@ blockquote {
   margin-bottom: 40px;
 }
 
-li {
+blockquote li {
   margin: 15px 5px;
   padding-left: 10px;
 }
@@ -35,4 +85,20 @@ li {
   color: #c7254e;
   background-color: #f9f2f4;
   border-radius: 4px;
+}
+
+footer.page-footer {
+  text-align: center;
+  padding: 15px;
+  color: #667;
+}
+
+.page-footer a {
+  color: #55a;
+}
+
+@media (max-width: 479px) {
+  main {
+    padding-left: 10px;
+  }
 }

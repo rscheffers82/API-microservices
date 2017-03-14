@@ -1,28 +1,55 @@
-
 <!-- This is a static file -->
 <!-- served from the routes in server.js -->
 
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome to File Metadata API!!!</title>
-    <meta name="description" content="A cool app made by Roy Scheffers">
-    <link id="favicon" rel="icon" href="base-jump.png" type="image/x-icon">
+    <title>URL Shortener API | Roy Scheffers Front-end Web Developer</title>
+    <meta name="description" content="File Metadata API build on Node, Express and MongoDB">
+
+    <link id="favicon" rel="icon" href="API-cog.png" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet" >
     <link type="text/css" rel="stylesheet" href="style.css">
   </head>
   <body>
     <header>
-      <h1 class="header">
-          Welcome to File Metadata API!!!
-      </h1>
+
+    <!-- Dropdown Structure -->
+      <ul id="projects" class="dropdown-content blue-grey darken-1 white-text">
+        <li><a onClick="visit('/exercise')" class="white-text">Exercise Tracker</a></li>
+        <li><a onClick="visit('/shorten')" class="white-text">URL Shortener</a></li>
+        <li><a onClick="visit('/filedata')" class="white-text">File Metadata</a></li>
+        <li><a onClick="visit('/timestamp')" class="white-text">Timestamp Microservice</a></li>
+        <li><a onClick="visit('/whoami')" class="white-text">Request Header Parser</a></li>
+        <li class="divider"></li>
+        <li><a onClick="visit('')" class="white-text">
+          <svg class="return" viewBox="0 0 24 24">
+            <path d="M11,9L12.42,10.42L8.83,14H18V4H20V16H8.83L12.42,19.58L11,21L5,15L11,9Z" />
+          </svg>
+          Main
+        </a></li>
+      </ul>
+      <nav>
+        <div class="nav-wrapper blue-grey darken-1 white-text">
+          <ul class="">
+            <li><a class="brand-logo dropdown-button title" href="#!" data-activates="projects">
+              File Metadata API
+              <svg class="arrow-down" viewBox="0 0 24 24">
+                <path d="M7,10L12,15L17,10H7Z" />
+              </svg>
+            </a></li>
+          </ul>
+        </div>
+      </nav>
+
     </header>
 
     <main>
-      <div class="container">
+      <div class="">
           <blockquote>
               User stories:
               <ol>
@@ -47,15 +74,23 @@
         <input type="file" name="file1" />
         <input type="submit" />
       </form>
-
     </main>
-    <br />
 
-    <footer>
-      <a href="http://royscheffers.com" target="_blank">
-        An app by Roy Scheffers
-      </a>
+    <footer class="page-footer grey lighten-2">
+      Copyright © 2017 | <a href="http://royscheffers.com" target="_blank">Roy Scheffers</a>
     </footer>
 
   </body>
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  <script>
+    function visit(page) {
+      var url = window.location.protocol + '//' + window.location.host + page;
+      console.log(url);
+      window.location.assign(encodeURI(url));
+    }
+  </script>
 </html>
