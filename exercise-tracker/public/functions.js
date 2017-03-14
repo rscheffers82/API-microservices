@@ -1,3 +1,10 @@
+
+function visit(page) {
+  var url = window.location.protocol + '//' + window.location.host + page;
+  // console.log(url);
+  window.location.assign(encodeURI(url));
+}
+
 const dateOptions = {
   selectMonths: true, // Creates a dropdown to control month
   selectYears: 15, // Creates a dropdown of 15 years to control year

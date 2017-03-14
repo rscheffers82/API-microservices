@@ -37,6 +37,39 @@
   </head>
   <body>
 
+    <header>
+
+    <!-- Dropdown Structure -->
+      <ul id="projects" class="dropdown-content blue-grey darken-1 white-text">
+        <li><a onClick="visit('/exercise')" class="white-text">Exercise Tracker</a></li>
+        <li><a onClick="visit('/shorten')" class="white-text">URL Shortener</a></li>
+        <li><a onClick="visit('/filedata')" class="white-text">File Metadata</a></li>
+        <li><a onClick="visit('/timestamp')" class="white-text">Timestamp Microservice</a></li>
+        <li><a onClick="visit('/whoami')" class="white-text">Request Header Parser</a></li>
+        <li class="divider"></li>
+        <li><a onClick="visit('')" class="white-text">
+          <svg class="return" viewBox="0 0 24 24">
+            <path d="M11,9L12.42,10.42L8.83,14H18V4H20V16H8.83L12.42,19.58L11,21L5,15L11,9Z" />
+          </svg>
+          Main
+        </a></li>
+      </ul>
+      <nav>
+        <div class="nav-wrapper blue-grey darken-1 white-text">
+          <ul class="">
+            <li><a class="brand-logo dropdown-button title" href="#!" data-activates="projects">
+              Exercise Tracker
+              <!-- <div class="arrow-down"></div> -->
+              <svg class="arrow-down" viewBox="0 0 24 24">
+                <path d="M7,10L12,15L17,10H7Z" />
+              </svg>
+            </a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </header>
+
     <ul id="slide-out" class="side-nav">
       <li><div class="userView">
         <div class="background">
@@ -53,9 +86,8 @@
         </div>
       </div></li>
       <li class="intro">
-        <!-- <div><i class="mdi mdi-information-outline"></i></div> -->
         <p>
-          Welcome to exercise tracker! This app is part of <a class="bare-link" href="https://www.freecodecamp.com" target="_blank">FreeCodeCamp</a>'s curriculum API section. </p>
+          Welcome to Exercise Tracker! This app is part of <a class="bare-link" href="https://www.freecodecamp.com" target="_blank">FreeCodeCamp</a>'s curriculum API section. </p>
         <p>
           This app will let you create a new user, add exercises and view the logs. By creating a new user and adding exercises POST requests are made to the server. Log data is provided via a GET request. Give it a try by clicking one of the links below to get started.
         </p>
