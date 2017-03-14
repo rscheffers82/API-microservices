@@ -3,7 +3,8 @@ const Exercise = require ('../model/exercise');
 const moment = require ('moment');
 
 exports.newUser = function(req, res) {
-  const name = req.body.username;
+  let name = req.body.username;
+  if (!name) name = 'Mr/Mrs Doe';
 
   User.findOne({ name: name })
     .then( (user) => {
@@ -18,8 +19,12 @@ exports.newUser = function(req, res) {
 
 
 exports.addExercise = function(req, res) {
-  const { userId, description, duration, date } = req.body;
   // Dates are coming in in this format = 'YYYY-MM-DD';
+  let { userId, description, duration, date } = req.body;
+  console.log('description:', description, ' - duration: ', duration, ' - date: ', date);
+  if (!description) description = 'No description provided';
+  if (!duration) duration = '0';
+  if (!date) date = moment();
 
   User.findOne({ userId })
     .then( (user) => {
