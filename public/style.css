@@ -35,6 +35,27 @@ li, .card, .collapsible-body {
   font-weight: 300;
 }
 
+svg {
+  fill: currentColor;
+}
+
+
+svg.github {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  top: 5px;
+  margin-right: 5px;
+}
+
+svg.demo {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  top: 5px;
+  margin-right: 5px;
+}
+
 .page-footer {
   text-align: center;
   padding: 20px;
