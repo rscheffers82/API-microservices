@@ -1,6 +1,6 @@
 # Exercise Tracker API
 
-![alt text](https://raw.githubusercontent.com/rscheffers82/API-microservices/master/exercise-tracker/public/images/exercise-tracker-social.jpg)
+![Exercise Tracker by Roy Scheffers](https://raw.githubusercontent.com/rscheffers82/API-microservices/master/exercise-tracker/public/images/exercise-tracker-social.jpg)
 
 This application was built to deepen my knowledge of building APIs using Node and Express. To make the app a little more intuitive and visual a partial front-end UI is created using Materialize CSS. This setup is chosen for API demo purposes and it not meant to be a full stack app.
 
@@ -17,5 +17,5 @@ To run this project locally, download the entire master branch (which contains t
 
 1. Ensure mongoDB is running locally
 2. Run `npm run start:local` from the terminal
-3. visit `localhost:8080/exercise`
+3. Visit `localhost:8080/exercise`
 4. Have fun! :)
