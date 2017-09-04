@@ -117,3 +117,9 @@ $('#showLogs').on('click', function(e) {
       console.log(errorMessage);
     });
 });
+
+function x() {
+  givemefood()
+  const x = 'hello';
+  x = "new value";
+}

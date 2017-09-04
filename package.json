@@ -9,7 +9,7 @@
     "start": "node server.js"
   },
   "keywords": [
-    "timestamp"
+    "API", "POST", "GET", "Exercise Tracker", "URL Shortener", "File metadata", "Timestamp", "Parse header requests"
   ],
   "author": "Roy Scheffers",
   "license": "MIT",
