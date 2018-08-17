@@ -224,7 +224,7 @@
       </div>
     </main>
     <footer class="page-footer yellow darken-3">
-      Copyright © 2017 | <a href="http://royscheffers.com" target="_blank">Roy Scheffers</a>
+      Copyright © <span id="copyright-year">2018</span> | <a href="http://royscheffers.com" target="_blank">Roy Scheffers</a>
     </footer>
 
     <script
@@ -234,4 +234,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <script src="./functions.js" type="text/javascript"></script>
   </body>
+  <script>
+    var year = (new Date()).getFullYear();
+    document.querySelector('#copyright-year').innerHTML = year;
+  </script>
 </html>

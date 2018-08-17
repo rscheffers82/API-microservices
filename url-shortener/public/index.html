@@ -86,7 +86,7 @@
     </main>
 
     <footer class="page-footer grey lighten-2">
-      Copyright © 2017 | <a href="http://royscheffers.com" target="_blank">Roy Scheffers</a>
+      Copyright © <span id="copyright-year">2018</span> | <a href="http://royscheffers.com" target="_blank">Roy Scheffers</a>
     </footer>
 
   </body>
@@ -101,5 +101,7 @@
       console.log(url);
       window.location.assign(encodeURI(url));
     }
+    var year = (new Date()).getFullYear();
+    document.querySelector('#copyright-year').innerHTML = year;
   </script>
 </html>
