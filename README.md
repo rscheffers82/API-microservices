@@ -3,7 +3,7 @@
 This repo is a collection of several API challenges from Free Code Camp. They are bundled to be able to deploy them under a single app on Heroku as unfortunately, heroku allows only 5 apps under their free tier.
 <br />[<<< Visit the main app >>>](https://rs82.herokuapp.com)
 
-![Screenshot API Microservices](https://github.com/rscheffers82/API-microservices/blob/master/public/API-collection-social.jpg?raw=1)
+![Screenshot API Microservices](https://github.com/rscheffers82/API-microservices/blob/master/public/API-collection-social(2).jpg?raw=1)
 
 ##### Timestamp API<br />
 Build an app that takes a unix or human readable time in the URL and outputs the result in JSON with properties unix and human with the proper data. If invalid input is provided, JSON data will be returned with both properties valued null.
